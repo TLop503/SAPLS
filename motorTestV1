@@ -29,6 +29,7 @@ void setup() {
 
 void loop() {
     //main code
+    //again errors are from lack of arduino ide
     digitalWrite(motor1pin1, HIGH);
     digitalWrite(motor1pin2, LOW);
 
