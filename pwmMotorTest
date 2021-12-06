@@ -160,4 +160,14 @@ void loop(){
     driveRight()
     delay(2000);
     driveStop();
+    SPEED = 100;
+    driveForwards()
+    delay(2000);
+    driveBackwards()
+    delay(2000);
+    driveLeft()
+    delay(2000);
+    driveRight()
+    delay(2000);
+    driveStop();
 }
