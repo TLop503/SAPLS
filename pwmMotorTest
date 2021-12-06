@@ -60,6 +60,74 @@ void driveForwards(){
     analogWrite(r2PWM, SPEED);
 }
 
+void driveBackwards(){
+    //l1 backwards
+    digitalWrite(l1in3, HIGH);
+    digitalWrite(l1in4, LOW);
+    analogWrite(l1PWM, SPEED);
+
+    //L2 backwards
+    digitalWrite(l2in1, HIGH);
+    digitalWrite(l2in2, LOW);
+    analogWrite(l2PWM, SPEED);
+
+    //R1 backwards
+    digitalWrite(r1in1, HIGH);
+    digitalWrite(r1in2, LOW);
+    analogWrite(r1PWM, SPEED);
+
+    //R2 backwards
+    digitalWrite(r2in3, HIGH);
+    digitalWrite(r2in4, LOW);
+    analogWrite(r2PWM, SPEED);
+}
+
+void driveLeft(){
+    //uses mecanum drivetrain to strafe
+    //l1 backwards
+    digitalWrite(l1in3, LOW);
+    digitalWrite(l1in4, HIGH);
+    analogWrite(l1PWM, SPEED);
+
+    //L2 forwards
+    digitalWrite(l2in1, HIGH);
+    digitalWrite(l2in2, LOW);
+    analogWrite(l2PWM, SPEED);
+
+    //R1 forwards
+    digitalWrite(r1in1, HIGH);
+    digitalWrite(r1in2, LOW);
+    analogWrite(r1PWM, SPEED);
+
+    //R2 backwards
+    digitalWrite(r2in3, LOW);
+    digitalWrite(r2in4, HIGH);
+    analogWrite(r2PWM, SPEED);
+}
+
+void driveRight(){
+    //uses mecanum drivetrain to strafe
+    //l1 forwards
+    digitalWrite(l1in3, HIGH);
+    digitalWrite(l1in4, LOW);
+    analogWrite(l1PWM, SPEED);
+
+    //L2 backwards
+    digitalWrite(l2in1, LOW);
+    digitalWrite(l2in2, HIGH);
+    analogWrite(l2PWM, SPEED);
+
+    //R1 backwards
+    digitalWrite(r1in1, LOW);
+    digitalWrite(r1in2, HIGH);
+    analogWrite(r1PWM, SPEED);
+
+    //R2 forwards
+    digitalWrite(r2in3, HIGH);
+    digitalWrite(r2in4, LOW);
+    analogWrite(r2PWM, SPEED);
+}
+
 void driveStop(){
     //l1 stop
     digitalWrite(l1in3, LOW);
