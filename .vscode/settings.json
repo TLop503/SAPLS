@@ -1,5 +1,6 @@
 {
     "files.associations": {
-        "motortestv1": "cpp"
+        "motortestv1": "cpp",
+        "pwmmotortest": "cpp"
     }
 }

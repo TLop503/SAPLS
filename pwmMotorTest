@@ -1,0 +1,89 @@
+//declares pins for controllers
+int l1in3 = 51;
+int l1in4 = 50;
+int l1PWM = 2;
+
+int l2in1 = 49;
+int l2in2 = 48;
+int l2PWM = 3;
+
+int r1in1 = 24;
+int r1in2 = 25;
+int r1PWM = 2;
+
+int r2in3 = 26;
+int r2in4 = 27;
+int r2PWM = 3;
+
+//Controls speed of motors
+int SPEED = 200;
+
+//declaring pin modes
+//errors in vsCode are from arduino only methods
+void setup() {
+    pinMode(l1in3, OUTPUT);
+    pinMode(l1in4, OUTPUT);
+    pinMode(l1PWM, OUTPUT);
+
+    pinMode(l2in1, OUTPUT);
+    pinMode(l2in2, OUTPUT);
+    pinMode(l2PWM, OUTPUT);
+
+    pinMode(r1in1, OUTPUT);
+    pinMode(r1in2, OUTPUT);
+    pinMode(r1PWM, OUTPUT);
+
+    pinMode(r2in3, OUTPUT);
+    pinMode(r2in4, OUTPUT);
+    pinMode(r2PWM, OUTPUT);
+}
+
+void driveForwards(){
+    //l1 forwards
+    digitalWrite(l1in3, LOW);
+    digitalWrite(l1in4, HIGH);
+    analogWrite(l1PWM, SPEED);
+
+    //L2 forwards
+    digitalWrite(l2in1, LOW);
+    digitalWrite(l2in2, HIGH);
+    analogWrite(l2PWM, SPEED);
+
+    //R1 forwards
+    digitalWrite(r1in1, LOW);
+    digitalWrite(r1in2, HIGH);
+    analogWrite(r1PWM, SPEED);
+
+    //R2 forwards
+    digitalWrite(r2in3, LOW);
+    digitalWrite(r2in4, HIGH);
+    analogWrite(r2PWM, SPEED);
+}
+
+void driveStop(){
+    //l1 stop
+    digitalWrite(l1in3, LOW);
+    digitalWrite(l1in4, LOW);
+    analogWrite(l1PWM, SPEED);
+
+    //L2 stop
+    digitalWrite(l2in1, LOW);
+    digitalWrite(l2in2, LOW);
+    analogWrite(l2PWM, SPEED);
+
+    //R1 stop
+    digitalWrite(r1in1, LOW);
+    digitalWrite(r1in2, LOW);
+    analogWrite(r1PWM, SPEED);
+
+    //R2 stop
+    digitalWrite(r2in3, LOW);
+    digitalWrite(r2in4, LOW);
+    analogWrite(r2PWM, SPEED);
+}
+
+void loop(){
+    driveForwards()
+    delay(2000);
+    driveStop();
+}
