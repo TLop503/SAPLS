@@ -151,23 +151,23 @@ void driveStop(){
 }
 
 void loop(){
-    driveForwards()
+    driveForwards();
     delay(2000);
-    driveBackwards()
+    driveBackwards();
     delay(2000);
-    driveLeft()
+    driveLeft();
     delay(2000);
-    driveRight()
+    driveRight();
     delay(2000);
     driveStop();
     SPEED = 100;
-    driveForwards()
+    driveForwards();
     delay(2000);
-    driveBackwards()
+    driveBackwards();
     delay(2000);
-    driveLeft()
+    driveLeft();
     delay(2000);
-    driveRight()
+    driveRight();
     delay(2000);
     driveStop();
 }
