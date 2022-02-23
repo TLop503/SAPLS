@@ -2,5 +2,6 @@
     "files.associations": {
         "motortestv1": "cpp",
         "pwmmotortest": "cpp"
-    }
+    },
+    "C_Cpp.errorSquiggles": "Enabled"
 }
