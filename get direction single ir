@@ -1,0 +1,60 @@
+/*      
+ * Built with some code from
+*  IR read codes     
+*  by Hanie kiani     
+*  https://electropeak.com/learn/
+*  and code from
+*  https://create.arduino.cc/projecthub/lagsilva/arduino-mutitasking-clock-stopwatch-timer-07f9e2
+*
+* This code assumes the robot is controlled by a remote with a button for each direction,
+* and only uses 1 IR reciever
+*/ 
+
+//errors will appear here unless in arduino ide
+#include <IRremote.h>  //including infrared remote header file     
+#include <StopWatch.h> //stopwatch library
+int RECV_PIN = -1; // IR output
+IRrecv irrecv(RECV_PIN);     
+decode_results results;
+
+//example IR codes
+int left = 123;
+int right = 456;
+int front = 789;
+int back = 147;
+
+//elapsed time
+double timeDelta = -1;
+     
+void setup()     
+{     
+    Serial.begin(9600); 
+    Serial.begin(115200);    
+    irrecv.enableIRIn();
+    MySW.setResolution(StopWatch :: MICROS);
+
+    //pins go here
+
+{     
+void loop()     
+{
+    //This is a template, for each direction this format would be re-used
+    //if the detected signal is "left" this will run
+    if (irrecv.decode(&results) = left)// Returns 0 if no data ready, 1 if data ready.     
+    {   
+        MySW.start();
+        int results.value = results;// Results of decoding are stored in result.value     
+        Serial.println("left");  
+        if (/* US signal recieved*/)
+        {
+            MySw.Stop();
+            timeDelta = MySw.Elapsed();
+            // math will happen here determining distancce the
+            // robot will travel
+            
+            //drive here
+
+            irrecv.resume(); // Restart the ISR state machine and Receive the next value
+        }
+    }
+}
