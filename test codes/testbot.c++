@@ -14,11 +14,17 @@ int BLpin2 = 51;
 int BRpin1 = 52;
 int BRpin2 = 53;
 
-int kForw = -1;
-int kBack = -1;
-int kLeft = -1;
-int kRight = -1;
+int kForwA = "1112";
+int kBackA = "459";
+int kLeftA = "45A";
+int kRightA = "45B";
+int kStopA = "45C";
 
+int kForwB = "10458";
+int kBackB = "10459";
+int kLeftB = "1045A";
+int kRightB = "1045B";
+int kStopB = "45C";
 
 boolean isBusy = false;
 
@@ -116,22 +122,22 @@ void halt(){
 
 void loop(){
   if (IrReceiver.decode()){
-        Serial.println(IrReceiver.decodedIRData.decodedRawData, HEX);
-        IrReceiver.printIRResultShort(&Serial); // optional use new print version
+        Serial.println(IrReceiver.decodedIRData.decodedRawData);
+        //IrReceiver.printIRResultShort(&Serial); // optional use new print version
     
-        if (IrReceiver.decodedIRData.decodedRawData == kForw){
+        if (IrReceiver.decodedIRData.decodedRawData == kForwA){
           halt();
           forwards();
-        } else if (IrReceiver.decodedIRData.decodedRawData == kBack) {
+        } else if (IrReceiver.decodedIRData.decodedRawData == kBackA) {
           halt();
           backwards();
-        } else if (IrReceiver.decodedIRData.decodedRawData == kLeft)  {
+        } else if (IrReceiver.decodedIRData.decodedRawData == kLeftA)  {
           halt();
           left();
-        } else if (IrReceiver.decodedIRData.decodedRawData == kRight) {
+        } else if (IrReceiver.decodedIRData.decodedRawData == kRightA) {
           halt();
           right();
-        } else  {
+        } else if (IrReceiver.decodedIRData.decodedRawData == kStopA) {
           halt();
         }
 
