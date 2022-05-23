@@ -40,7 +40,7 @@ void loop()
 {
     //This is a template, for each direction this format would be re-used
     //if the detected signal is "left" this will run
-    if (irrecv.decode(&results) = left)// Returns 0 if no data ready, 1 if data ready.     
+    if (irrecv.decode(&results) == left)// Returns 0 if no data ready, 1 if data ready.     
     {   
         MySW.start();
         int results.value = results;// Results of decoding are stored in result.value     

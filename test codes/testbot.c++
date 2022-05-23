@@ -1,3 +1,7 @@
+#include <IRremote.h>
+
+const int RECV_PIN = 11;
+
 int FLpin1 = 48;
 int FLpin2 = 49;
 
@@ -10,8 +14,18 @@ int BLpin2 = 51;
 int BRpin1 = 52;
 int BRpin2 = 53;
 
-void setup() {
-  // put your setup code here, to run once:
+int kForw = -1;
+int kBack = -1;
+int kLeft = -1;
+int kRight = -1;
+
+
+boolean isBusy = false;
+
+void setup(){
+  Serial.begin(9600);
+  IrReceiver.begin(RECV_PIN, ENABLE_LED_FEEDBACK); // Start the receiver
+
   pinMode(FLpin1, OUTPUT);
   pinMode(FLpin2, OUTPUT);
 
@@ -26,6 +40,7 @@ void setup() {
 }
 
 void forwards(){
+  isBusy = true;
   digitalWrite(FLpin1, HIGH);
   digitalWrite(FLpin2, LOW);
 
@@ -40,6 +55,7 @@ void forwards(){
 }
 
 void backwards(){
+  isBusy = true;
   digitalWrite(FLpin1, LOW);
   digitalWrite(FLpin2, HIGH);
 
@@ -54,6 +70,7 @@ void backwards(){
 }
 
 void left(){
+  isBusy = true;
   digitalWrite(FLpin1, LOW);
   digitalWrite(FLpin2, HIGH);
 
@@ -68,6 +85,7 @@ void left(){
 }
 
 void right(){
+  isBusy = true;
   digitalWrite(FLpin1, HIGH);
   digitalWrite(FLpin2, LOW);
 
@@ -81,7 +99,8 @@ void right(){
   digitalWrite(BRpin2, HIGH);
 }
 
-void stop(){
+void halt(){
+  isBusy = false;
   digitalWrite(FLpin1, LOW);
   digitalWrite(FLpin2, LOW);
 
@@ -95,9 +114,28 @@ void stop(){
   digitalWrite(BRpin2, LOW);
 }
 
-void loop() {
-  // put your main code here, to run repeatedly:
-  
-  
-  
+void loop(){
+  if (IrReceiver.decode()){
+        Serial.println(IrReceiver.decodedIRData.decodedRawData, HEX);
+        IrReceiver.printIRResultShort(&Serial); // optional use new print version
+    
+        if (IrReceiver.decodedIRData.decodedRawData == kForw){
+          halt();
+          forwards();
+        } else if (IrReceiver.decodedIRData.decodedRawData == kBack) {
+          halt();
+          backwards();
+        } else if (IrReceiver.decodedIRData.decodedRawData == kLeft)  {
+          halt();
+          left();
+        } else if (IrReceiver.decodedIRData.decodedRawData == kRight) {
+          halt();
+          right();
+        } else  {
+          halt();
+        }
+
+        //continue scanning
+        IrReceiver.resume();
+  }
 }
