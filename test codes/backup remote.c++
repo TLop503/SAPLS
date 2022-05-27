@@ -69,11 +69,11 @@ void left(){
   digitalWrite(FLpin1, LOW);
   digitalWrite(FLpin2, HIGH);
 
-  digitalWrite(FRpin1, LOW);
-  digitalWrite(FRpin2, HIGH);
+  digitalWrite(FRpin1, HIGH);
+  digitalWrite(FRpin2, LOW);
 
-  digitalWrite(BLpin1, HIGH);
-  digitalWrite(BLpin2, LOW);
+  digitalWrite(BLpin1, LOW);
+  digitalWrite(BLpin2, HIGH);
 
   digitalWrite(BRpin1, HIGH);
   digitalWrite(BRpin2, LOW);
@@ -83,11 +83,11 @@ void right(){
   digitalWrite(FLpin1, HIGH);
   digitalWrite(FLpin2, LOW);
 
-  digitalWrite(FRpin1, HIGH);
-  digitalWrite(FRpin2, LOW);
+  digitalWrite(FRpin1, LOW);
+  digitalWrite(FRpin2, HIGH);
 
-  digitalWrite(BLpin1, LOW);
-  digitalWrite(BLpin2, HIGH);
+  digitalWrite(BLpin1, HIGH);
+  digitalWrite(BLpin2, LOW);
 
   digitalWrite(BRpin1, LOW);
   digitalWrite(BRpin2, HIGH);
