@@ -149,7 +149,7 @@ void loop(){
         }
 
         //continue scanning, loop restarts
-        //beacuase of the loop structure the robot will run until told not to, instead of moving a set distance
+        //beacuase of the loop structure the robot will run until told not to, instead of moving a set distance 
         IrReceiver.resume();
   }
 }
