@@ -1,4 +1,2 @@
-# palletArduino
-stores arduino sketches for senior project. basically google drive
-
-Currently testbot.c++ is the main file
+# SAPLS
+Arduino sketches for SAPLS development are stored here. testBot is the most up-to date version of the code as of Dec '22.
